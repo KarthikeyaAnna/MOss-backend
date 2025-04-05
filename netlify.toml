@@ -1,9 +1,8 @@
 [build]
-  command = "pip install -r requirements.txt"
-  publish = "."
-  functions = "netlify/functions"
+  functions = "functions"  # Directory where your serverless functions are located
+  publish = "."            # Publish directory (can be root if no static assets)
 
 [[redirects]]
-  from = "/api/*"
-  to = "/.netlify/functions/api/:splat"
+  from = "/*"
+  to = "/.netlify/functions/api"  # Redirect all requests to the serverless function
   status = 200
